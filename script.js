@@ -1,33 +1,44 @@
+// Navegacao principal e menus acessiveis no desktop e dispositivos moveis.
 const copyright = document.getElementById('copyright');
 if (copyright) copyright.textContent = new Date().getFullYear();
 
 const toggle = document.querySelector('.menu');
 const navigation = document.getElementById('menu-principal');
-const matrices = document.querySelector('.nav-matrices');
+const dropdowns = navigation ? Array.from(navigation.querySelectorAll('details')) : [];
+
+function closeDropdowns(except = null) {
+  dropdowns.forEach(menu => { if (menu !== except) menu.open = false; });
+}
+dropdowns.forEach(menu => {
+  menu.addEventListener('toggle', () => {
+    if (menu.open) closeDropdowns(menu);
+  });
+});
 if (toggle && navigation) {
   function setMenu(open) {
     navigation.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
     toggle.textContent = open ? '×' : '☰';
-    if (!open && matrices) matrices.open = false;
+    if (!open) closeDropdowns();
   }
   toggle.addEventListener('click', () => setMenu(!navigation.classList.contains('open')));
-  navigation.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => setMenu(false));
-  });
+  navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && matrices?.open) {
-      matrices.open = false;
-      matrices.querySelector('summary').focus();
-    } else if (event.key === 'Escape' && navigation.classList.contains('open')) {
+    if (event.key !== 'Escape') return;
+    const expandedDropdown = dropdowns.find(menu => menu.open);
+    if (expandedDropdown) {
+      expandedDropdown.open = false;
+      expandedDropdown.querySelector('summary').focus();
+    } else if (navigation.classList.contains('open')) {
       setMenu(false);
       toggle.focus();
     }
   });
   document.addEventListener('click', event => {
-    if (matrices && !matrices.contains(event.target)) matrices.open = false;
     if (!navigation.contains(event.target) && !toggle.contains(event.target)) setMenu(false);
+    else if (!dropdowns.some(menu => menu.contains(event.target))) closeDropdowns();
   });
-  window.matchMedia('(max-width: 900px)').addEventListener('change', () => setMenu(false));
+  const media = window.matchMedia('(max-width: 900px)');
+  if (typeof media.addEventListener === 'function') media.addEventListener('change', () => setMenu(false));
 }
