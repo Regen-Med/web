@@ -287,3 +287,43 @@ footer>a:last-of-type{color:var(--blue);font-weight:500}
 @media(max-width:1100px){.inst-pillar-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.inst-pillar:nth-child(3){border-left:0;padding-left:0}.inst-pillar:nth-child(n+3){border-top:1px solid var(--line)}}
 @media(max-width:900px){.nav-instituto>summary{padding:12px 0}.nav-instituto>summary:after{margin-left:auto}.nav-instituto-links{position:static;min-width:0;width:100%;padding:0 18px;background:var(--paper);box-shadow:none;margin:4px 0 12px}.inst-hero{grid-template-columns:1fr;gap:30px;padding-top:48px}.inst-hero-aside{min-height:215px}.inst-lead{grid-template-columns:1fr;gap:0}.inst-lead>div:last-child{padding-top:0}.inst-timeline-section{grid-template-columns:1fr}.inst-date-big{min-height:280px}.inst-story-grid{grid-template-columns:1fr 1fr}.inst-home-band{grid-template-columns:1fr}.inst-statute-intro{grid-template-columns:1fr}}
 @media(max-width:700px){.inst-hero{padding-top:42px;padding-bottom:48px}.inst-hero h1{font-size:clamp(37px,9vw,49px)}.inst-hero-copy>p{font-size:16px}.inst-hero-aside{min-height:205px;padding:27px}.inst-hero-aside strong{font-size:29px}.inst-two-visions,.inst-principles,.inst-next{grid-template-columns:1fr}.inst-pillar-grid{grid-template-columns:1fr;margin-top:28px}.inst-pillar,.inst-pillar+.inst-pillar,.inst-pillar:nth-child(3){border-left:0;border-top:1px solid var(--line);padding:25px 0 12px}.inst-pillar:first-child{border-top:0}.inst-feature-list article{grid-template-columns:40px 1fr;gap:18px}.inst-story-grid{grid-template-columns:1fr}.inst-statute-paper{margin-top:30px}.inst-document-title p{font-size:12px}.inst-article p{font-size:16px}.inst-date-big{padding:30px;min-height:240px}.inst-home-aside{padding:30px}.footer-institucional{flex-direction:column;align-items:flex-start;gap:9px}.inst-vision-panel{padding:28px}.inst-vision-panel p,.inst-principle p{font-size:15px}}
+
+/* Responsabilidade social e NIT: páginas institucionais */
+.regen-feature-hero .inst-hero-copy>p{max-width:680px}
+.regen-initiatives{background:#fff}
+.regen-initiatives-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.regen-initiative{display:flex;flex-direction:column;align-items:flex-start;padding:36px;border:1px solid var(--line);background:var(--paper);border-radius:10px;transition:border-color .2s,transform .2s}
+.regen-initiative:hover{border-color:var(--blue);transform:translateY(-3px)}
+.regen-initiative>span,.regen-label,.regen-nit-grid article>span{font-size:11px;letter-spacing:1.2px;font-weight:700;color:var(--blue)}
+.regen-initiative h3{font-size:clamp(22px,2.2vw,31px);max-width:550px}
+.regen-initiative p{font-size:15px;max-width:550px}
+.regen-initiative>strong{margin-top:auto;font-size:14px;color:var(--blue);padding-top:15px}
+.regen-initiative>strong span{margin-left:14px}
+.regen-cross-links{background:#f5f9fb}
+.regen-cross-links-inner{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.regen-cross-buttons{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.regen-cross-buttons a{color:var(--blue)}
+.regen-commitment-list{margin-top:38px;border-top:1px solid var(--line)}
+.regen-commitment{display:grid;grid-template-columns:64px minmax(0,1fr) 185px;gap:25px;border-bottom:1px solid var(--line);padding:34px 0;align-items:start}
+.regen-index{font:600 23px var(--heading);color:var(--blue)}
+.regen-commitment h3{font-size:clamp(22px,2.1vw,30px);margin:12px 0 17px}
+.regen-commitment p{max-width:850px;font-size:15px;line-height:1.85}
+.regen-stat{justify-self:end;align-self:center;white-space:nowrap;color:var(--navy);font:600 46px/1.15 var(--heading);letter-spacing:-.06em}
+.regen-stat small{white-space:normal;display:block;max-width:175px;font:500 12px/1.6 var(--body);letter-spacing:0;color:var(--muted)}
+.regen-nit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:35px}
+.regen-nit-grid article{background:#fff;border:1px solid var(--line);border-radius:10px;padding:34px}
+.regen-nit-grid article h3{font-size:clamp(22px,2vw,29px);margin:19px 0 14px}
+.regen-nit-grid article p{font-size:15px}
+.regen-innovation-flow{background:#fff}
+.regen-innovation-flow h2{max-width:840px}
+.regen-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:39px}
+.regen-flow>div{border-top:3px solid var(--blue);background:var(--paper);padding:25px 22px}
+.regen-flow>div>span{font-size:11px;letter-spacing:1.3px;font-weight:700;color:var(--blue)}
+.regen-flow strong{display:block;font:600 22px var(--heading);margin:17px 0 9px}
+.regen-flow p{font-size:14px;margin-bottom:0}
+.regen-accountability{display:grid;grid-template-columns:1fr 1fr;gap:clamp(25px,7vw,100px);background:#eaf2f6}
+.regen-accountability a{text-decoration:underline;text-underline-offset:3px;color:var(--blue)}
+.regen-accountability p{font-size:15px}
+@media(max-width:1100px){.regen-commitment{grid-template-columns:45px minmax(0,1fr) 125px}.regen-stat{font-size:39px}.regen-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.regen-initiatives-grid,.regen-cross-links-inner,.regen-accountability{grid-template-columns:1fr}.regen-commitment{grid-template-columns:40px minmax(0,1fr)}.regen-stat{grid-column:2;justify-self:start;align-self:start}.regen-nit-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.regen-initiative{padding:26px}.regen-initiative h3{font-size:24px}.regen-commitment{gap:16px;padding:27px 0}.regen-index{font-size:19px}.regen-commitment h3{font-size:23px}.regen-commitment p{font-size:14px}.regen-nit-grid article{padding:27px}.regen-flow{grid-template-columns:1fr}.regen-feature-hero .inst-hero-copy>p{font-size:16px}}
