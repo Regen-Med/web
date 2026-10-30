@@ -50,6 +50,26 @@ jobs:
 
           # Mantem README, workflow e configuracoes existentes; copia as paginas e assets do site.
           cp -a "$SITE_DIR/." ./
+
+          # wget codifica o parametro ?v=5 como parte do nome; usa nomes portaveis.
+          if [ -f 'style.css?v=5.css' ]; then
+            mv -f -- 'style.css?v=5.css' style.css
+          fi
+          if [ -f 'script.js?v=5' ]; then
+            mv -f -- 'script.js?v=5' script.js
+          fi
+          for page in ./*.html; do
+            sed -i \
+              -e 's/style\.css%3Fv=5\.css/style.css/g' \
+              -e 's/script\.js%3Fv=5/script.js/g' \
+              "$page"
+          done
+
+          test -s style.css && test -s script.js
+          if grep -lE 'style\.css%3F|script\.js%3F' ./*.html; then
+            echo "::error::Referencias CSS/JS nao normalizadas"
+            exit 1
+          fi
           echo "Arquivos obtidos:"
           find "$SITE_DIR" -type f | sort
 
