@@ -1,0 +1,68 @@
+name: Importar site publicado RegenMed
+
+on:
+  push:
+    paths:
+      - .github/workflows/importar-site.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: importar-site-regenmed
+  cancel-in-progress: false
+
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout da branch master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          persist-credentials: true
+
+      - name: Baixar HTML e recursos publicados
+        shell: bash
+        run: |
+          set -euo pipefail
+          ORIGIN='https://regenmed-formacao.eduardokraus.chatgpt.site/'
+          HOST='regenmed-formacao.eduardokraus.chatgpt.site'
+          TEMP_DIR="$(mktemp -d)"
+
+          wget --recursive --level=3 --page-requisites --convert-links \
+            --adjust-extension --no-parent --execute robots=off \
+            --domains="$HOST" --user-agent='Mozilla/5.0 (compatible; RegenMedSiteMigration/1.0)' \
+            --directory-prefix="$TEMP_DIR" "$ORIGIN"
+
+          SITE_DIR="$TEMP_DIR/$HOST"
+          test -s "$SITE_DIR/index.html"
+
+          for file in matriz-curricular-ano-1.html matriz-curricular-ano-2.html matriz-curricular-ano-3.html; do
+            test -s "$SITE_DIR/$file" || { echo "::error::Pagina nao baixada: $file"; exit 1; }
+          done
+
+          grep -qi 'regeneração' "$SITE_DIR/index.html" || {
+            echo "::error::A home nao corresponde ao site RegenMed"; exit 1;
+          }
+
+          # Mantem README, workflow e configuracoes existentes; copia as paginas e assets do site.
+          cp -a "$SITE_DIR/." ./
+          echo "Arquivos obtidos:"
+          find "$SITE_DIR" -type f | sort
+
+      - name: Commit da copia estatica
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteracao a publicar."
+            exit 0
+          fi
+          git commit -m "Importa copia estatica do site RegenMed publicado"
+          git push origin HEAD:master
