@@ -335,3 +335,6 @@ footer>a:last-of-type{color:var(--blue);font-weight:500}
 .footer-abec a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 .footer-abec img{display:block;width:210px;height:auto;max-width:55vw}
 @media(max-width:700px){.footer-abec{justify-content:flex-start;gap:12px;flex-wrap:wrap}.footer-abec img{width:190px}}
+
+/* Reserva espaço para o novo acesso ao Jornal Científico no menu desktop. */
+@media (min-width:901px) and (max-width:1280px){header{gap:14px}header img{width:190px}header nav{gap:16px}header nav a:not(.nav-cta){font-size:13px}}
