@@ -33,3 +33,13 @@
 /* Evita que os estilos globais do menu móvel alterem as abas do jornal e o rodapé. */
 .journal-page .j-tabs{display:flex;position:static;top:auto;left:auto;right:auto;flex-direction:row;align-items:center;justify-content:flex-start;box-shadow:none;flex-wrap:nowrap}
 .journal-page .j-footer{display:block}
+
+
+/* A marca ABEC Brasil é usada integralmente, sem filtros, cortes ou alterações cromáticas. */
+.journal-page .j-abec{width:100%;display:flex;justify-content:flex-end;align-items:center;gap:22px;padding:22px 0;margin-top:32px;border-top:1px solid var(--jl)}
+.journal-page .j-abec>span{font-size:12px;font-weight:600;color:var(--jm)}
+.journal-page .j-abec>a{display:inline-flex;align-items:center;justify-content:center;border-radius:4px}
+.journal-page .j-abec img{width:210px;max-width:55vw;height:auto;display:block}
+.journal-page .j-abec a:focus-visible{outline:3px solid var(--jb);outline-offset:5px}
+.journal-page .j-footer-bottom{margin-top:0}
+@media(max-width:600px){.journal-page .j-abec{justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;gap:12px}.journal-page .j-abec img{width:190px;max-width:80vw}}
