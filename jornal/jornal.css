@@ -43,3 +43,39 @@
 .journal-page .j-abec a:focus-visible{outline:3px solid var(--jb);outline-offset:5px}
 .journal-page .j-footer-bottom{margin-top:0}
 @media(max-width:600px){.journal-page .j-abec{justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;gap:12px}.journal-page .j-abec img{width:190px;max-width:80vw}}
+
+/* O menu principal e as abas do jornal têm comportamentos independentes.
+   No desktop, toda a navegação editorial pode quebrar linha sem esconder links;
+   em telas estreitas, somente as abas usam rolagem horizontal. */
+.journal-page .j-tabs{
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
+  display:flex;
+  position:relative;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:flex-start;
+  gap:2px 8px;
+  overflow-x:visible;
+  padding-inline:var(--gutter);
+}
+.journal-page .j-tabs a{
+  flex:0 0 auto;
+  padding:10px 12px;
+}
+#menu-principal .nav-instituto-links,
+#menu-principal .nav-matrices-links{
+  z-index:3;
+}
+@media(max-width:1080px){
+  .journal-page .j-tabs{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    overflow-y:hidden;
+    gap:2px;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+}
