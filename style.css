@@ -154,9 +154,9 @@ footer>a:last-of-type{color:var(--blue);font-weight:500}
 
 /* Direct access to each year's curriculum. */
 .nav-matrices{position:relative}
-.nav-matrices>summary{padding:12px 0;font-size:inherit;font-weight:inherit;gap:8px;white-space:nowrap}
-.nav-matrices>summary:after{content:'⌄';font-size:16px;line-height:1;margin-left:0;transition:transform .2s}
-.nav-matrices[open]>summary:after{content:'⌄';transform:rotate(180deg)}
+.nav-matrices>summary{display:flex;align-items:center;padding:12px 0;font-size:inherit;font-weight:inherit;gap:8px;white-space:nowrap;list-style:none}
+.nav-matrices>summary::after{content:'';display:block;flex:0 0 auto;width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s ease}
+.nav-matrices[open]>summary::after{transform:translateY(2px) rotate(225deg)}
 .nav-matrices-links{position:absolute;top:calc(100% + 9px);right:0;width:325px;padding:10px 20px;background:#fff;border:1px solid var(--line);border-radius:9px;box-shadow:0 14px 40px #10374d1f}
 .nav-matrices-links>a{display:block;white-space:normal;padding:14px 0!important;border-bottom:1px solid var(--line);line-height:1.55}
 .nav-matrices-links>a:last-child{border-bottom:0}
@@ -183,9 +183,9 @@ footer>a:last-of-type{color:var(--blue);font-weight:500}
 
 /* Identidade e paginas institucionais - Instituto RegenMed */
 .nav-instituto{position:relative}
-.nav-instituto>summary{display:flex;align-items:center;gap:8px;padding:12px 0;white-space:nowrap;font-size:inherit;font-weight:inherit}
-.nav-instituto>summary:after{content:'⌄';font-size:16px;line-height:1}
-.nav-instituto[open]>summary:after{transform:rotate(180deg)}
+.nav-instituto>summary{display:flex;align-items:center;gap:8px;padding:12px 0;white-space:nowrap;font-size:inherit;font-weight:inherit;list-style:none}
+.nav-instituto>summary::after{content:'';display:block;flex:0 0 auto;width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s ease}
+.nav-instituto[open]>summary::after{transform:translateY(2px) rotate(225deg)}
 .nav-instituto>summary.nav-active{color:var(--blue);font-weight:700}
 .nav-instituto-links{position:absolute;top:calc(100% + 9px);left:0;min-width:240px;padding:8px 19px;background:#fff;border:1px solid var(--line);border-radius:9px;box-shadow:0 14px 40px #10374d1f}
 .nav-instituto-links a{display:block;padding:11px 0!important;white-space:normal;border-bottom:1px solid var(--line);line-height:1.5}
@@ -338,3 +338,6 @@ footer>a:last-of-type{color:var(--blue);font-weight:500}
 
 /* Reserva espaço para o novo acesso ao Jornal Científico no menu desktop. */
 @media (min-width:901px) and (max-width:1280px){header{gap:14px}header img{width:190px}header #menu-principal{gap:16px}header #menu-principal a:not(.nav-cta){font-size:13px}}
+
+/* Remover o marcador nativo para exibir uma única seta alinhada ao texto. */
+.nav-instituto>summary::-webkit-details-marker,.nav-matrices>summary::-webkit-details-marker{display:none}
