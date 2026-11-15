@@ -1,0 +1,9 @@
+<nav class="j-tabs" aria-label="Navegação do jornal">
+  <a href="/jornal/"{% if page.journal_page == "home" %} aria-current="page"{% endif %}>Início</a>
+  <a href="/jornal/diretrizes-editoriais/"{% if page.journal_page == "diretrizes-editoriais" %} aria-current="page"{% endif %}>Diretrizes editoriais</a>
+  <a href="/jornal/normas-para-autores/"{% if page.journal_page == "normas-para-autores" %} aria-current="page"{% endif %}>Para autores</a>
+  <a href="/jornal/corpo-editorial/"{% if page.journal_page == "corpo-editorial" %} aria-current="page"{% endif %}>Corpo editorial</a>
+  <a href="/jornal/etica-e-integridade/"{% if page.journal_page == "etica-e-integridade" %} aria-current="page"{% endif %}>Ética e integridade</a>
+  <a href="/jornal/edicoes/"{% if page.journal_page == "edicoes" %} aria-current="page"{% endif %}>Edições</a>
+  <a href="/jornal/submissoes/"{% if page.journal_page == "submissoes" %} aria-current="page"{% endif %}>Submissões</a>
+</nav>
