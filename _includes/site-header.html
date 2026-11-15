@@ -1,0 +1,30 @@
+<header>
+  <a href="/index.html#inicio" aria-label="RegenMed, página inicial"><img src="/assets/logo.png" alt="RegenMed Medicina Regenerativa" width="234" height="70"></a>
+  <button class="menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">☰</button>
+  <nav id="menu-principal" aria-label="Menu principal">
+    <a href="/index.html#programa">O programa</a>
+    <a href="/index.html#formacao">Formação</a>
+    <details class="nav-instituto">
+      <summary{% if page.section == "instituto" %} class="nav-active"{% endif %}>O Instituto</summary>
+      <div class="nav-instituto-links">
+        <a href="/instituto.html"><span>O Instituto</span></a>
+        <a href="/quem-somos.html"><span>Quem somos</span></a>
+        <a href="/historia.html"><span>Nossa história</span></a>
+        <a href="/missao-visao.html"><span>Missão e visão</span></a>
+        <a href="/estatuto-social.html"><span>Estatuto social</span></a>
+        <a href="/responsabilidade-social.html"><span>Responsabilidade social</span></a>
+        <a href="/nit.html"><span>Núcleo de Inovação Tecnológica</span></a>
+      </div>
+    </details>
+    <details class="nav-matrices">
+      <summary{% if page.section == "matrizes" %} class="nav-active"{% endif %}>Matrizes curriculares</summary>
+      <div class="nav-matrices-links">
+        <a href="/matriz-curricular-ano-1.html"><strong>Ano 01</strong><span>Fundamentos e bioengenharia</span></a>
+        <a href="/matriz-curricular-ano-2.html"><strong>Ano 02</strong><span>Intervencionismo e dor</span></a>
+        <a href="/matriz-curricular-ano-3.html"><strong>Ano 03</strong><span>Prática hospitalar avançada</span></a>
+      </div>
+    </details>
+    <a href="/jornal/"{% if page.section == "jornal" %} aria-current="page"{% endif %}>Jornal científico</a>
+    <a class="nav-cta" href="https://ead.regen.med.br" target="_blank" rel="noopener noreferrer">Acesse o AVA <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>
