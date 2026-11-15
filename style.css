@@ -111,7 +111,6 @@ header img{width:218px;display:block}
 summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:20px;padding:23px 0;font-size:17px;font-weight:500;line-height:1.5}
 summary::-webkit-details-marker{display:none}
 summary:after{content:'+';margin-left:auto;color:var(--blue);font-size:24px;font-weight:400;flex-shrink:0;line-height:1}
-details[open]>summary:after{content:'−'}
 details[open]>summary{color:var(--blue)}
 .faq p{font-size:15px;margin:0 32px 24px 0;line-height:1.85}
 .download{margin:0 var(--gutter) 76px;padding:52px;background:var(--paper);border:1px solid var(--line);border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:55px;position:relative}
